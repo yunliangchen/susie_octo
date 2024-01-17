@@ -59,9 +59,6 @@ np.set_printoptions(suppress=True)
 FLAGS = flags.FLAGS
 
 flags.DEFINE_string(
-    "policy_checkpoint", None, "Path to policy checkpoint", required=True
-)
-flags.DEFINE_string(
     "diffusion_checkpoint", None, "Path to diffusion checkpoint", required=True
 )
 flags.DEFINE_string(
@@ -158,7 +155,7 @@ def rollout_subgoal(
                 rng, key = jax.random.split(rng)
                 ##########################################################################
                 # pred_actions = jax.device_get(get_action(key, obs, goal_obs))
-                pred_actions = get_action(obs, goal_obs, rng)
+                pred_actions = jax.device_get(get_action(obs, goal_obs, rng))
                 ##########################################################################
                 if len(pred_actions.shape) == 1:
                     pred_actions = pred_actions[None]

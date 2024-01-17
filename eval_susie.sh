@@ -1,0 +1,1 @@
+python scripts/robot/eval_diffusion_with_octo.py --diffusion_checkpoint kvablack/susie --diffusion_wandb kvablack/dlimp-diffusion/9n9ped8m -diffusion_pretrained_path runwayml/stable-diffusion-v1-5:flax --initial_eep "0.3 0.0 0.15" --diffusion_num_steps 50 --prompt_w 7.5 --context_w 1.5 --ip 128.32.175.236 --port 5556
